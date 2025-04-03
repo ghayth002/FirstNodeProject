@@ -1,11 +1,14 @@
 const express = require("express");
 const app = express();
-const productRoute = require('./Routes/product')
-const userRoute = require('./Routes/user');
+const productRoute = require("./Routes/product");
+const userRoute = require("./Routes/user");
 require("./Config/Connect");
 
 app.use(express.json());
 
+app.use("/product", productRoute);
+app.use("/user", userRoute);
+app.use("/getimage", express.static("./uploads"));
 
 //Product crud
 app.use('/product',productRoute);
